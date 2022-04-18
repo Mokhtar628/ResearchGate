@@ -1,0 +1,203 @@
+﻿
+
+.ZeroMarginAndPadding{
+    margin:0 !important;
+    padding:0 !important;
+}
+
+.nav-style {
+    position: sticky;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    z-index: 5;
+    height: 72px;
+    border-bottom: 1px solid #ddd !important;
+    padding: 10px;
+}
+
+.logInButton {
+    color: #000002 !important;
+}
+
+.SignUpButton {
+    margin-left: 7px;
+    color: #40ba9b;
+}
+
+.nav-buttons {
+    float: right;
+    padding: 15px 15px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent;
+}
+
+.navbar-header {
+    width: 100%;
+}
+
+.navbar-brand {
+    color: #40ba9b;
+}
+
+footer {
+    background-color: #ebefee;
+    width: 100%;
+    height: 20vh;
+    position:absolute;
+}
+
+.lower-div {
+    content: "";
+    position: absolute;
+    display: block;
+    background-color: #ebefee;
+    width: 75vw;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    transform: translate(-50vw);
+}
+
+h1 {
+    font-size: 38px !important;
+    line-height: 46px !important;
+    max-width: 400px !important;
+    font-weight: 700 !important;
+    color: #001e1d;
+}
+
+.welcome-text {
+    margin-left:20vh;
+    margin-top:25vh
+}
+
+.JoinFreeButton {
+    max-width: 360px;
+    width: 45vh;
+    height: 9vh;
+    max-height: 70px;
+    padding: 15px !important;
+    font-size: 18px !important;
+    font-weight: 600 !important
+}
+
+.btn-warning {
+    background-color: #40ba9b !important;
+    border-color: #40ba9b !important;
+}
+    .btn-warning:active {
+        background-color: #40ba9b !important;
+    }
+    .btn-warning:hover {
+        background-color: #3ab495 !important;
+    }
+
+img {
+    position: absolute;
+    right: 26vh;
+    top: 17vh;
+    width: 35%
+}
+
+@media(max-width: 1070px){
+    img {
+        right: 7vh;
+        top: 17vh;
+    }
+}
+
+@media(max-width: 782px) {
+    .welcome-text {
+        margin-left: 10vh;
+        margin-top: 20vh
+    }
+    h1 {
+        font-size: 25px !important;
+        line-height: 46px !important;
+        max-width: 300px !important;
+        font-weight: 700 !important;
+        color: #001e1d;
+    }
+}
+
+@media(max-width: 860px) {
+    .JoinFreeButton {
+        max-width: 300px;
+        width: 45vh;
+        height: 9vh;
+        max-height: 50px
+    }
+    img{
+        display:none;
+    }
+}
+
+@media(max-width: 580px) {
+    .JoinFreeButton {
+        max-width: 250px;
+        width: 45vh;
+        height: 9vh;
+        max-height: 40px
+    }
+    .welcome-text {
+        margin-left: 8vh;
+        margin-top: 20vh
+    }
+
+    h1 {
+        font-size: 15px !important;
+        line-height: 26px !important;
+        max-width: 300px !important;
+        font-weight: 700 !important;
+        color: #001e1d;
+    }
+}
+
+@media(max-width: 440px) {
+    .JoinFreeButton {
+        max-width: 200px;
+        width: 40vh;
+        height: 9vh;
+        max-height: 30px;
+        padding: 0px !important;
+        font-size: 10px !important;
+    }
+
+    .welcome-text {
+        margin-left: 8vh;
+        margin-top: 20vh
+    }
+
+    h1 {
+        font-size: 12px !important;
+        line-height: 23px !important;
+        max-width: 300px !important;
+        font-weight: 700 !important;
+        color: #001e1d;
+    }
+}
+
+@media(max-width: 360px) {
+    .JoinFreeButton {
+        max-width: 200px;
+        width: 45vh;
+        height: 9vh;
+        max-height: 30px
+    }
+
+    .welcome-text {
+        margin-left: 8vh;
+        margin-top: 20vh
+    }
+
+    h1 {
+        font-size: 12px !important;
+        line-height: 23px !important;
+        max-width: 300px !important;
+        font-weight: 700 !important;
+        color: #001e1d;
+    }
+}

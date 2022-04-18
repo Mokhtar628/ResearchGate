@@ -1,0 +1,42 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title Research Gate</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Welcome/Welcome.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-fixed-top nav-style">
+        <div class="container">
+            <div class="navbar-header">
+                <span class="navbar-brand">Research Gate</span>
+                <span class="nav-buttons">
+                    @Html.ActionLink("Log In", "Index", "Home", new { area = "" }, new { @class = "logInButton" })
+                    @Html.ActionLink("Join for free", "Index", "Home", new { area = "" }, new { @class = "SignUpButton" })
+                </span>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav"></ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container lower-div">
+        <div class="welcome-text">
+            <h1>Discover scientific knowledge and stay connected to the world of science</h1>
+            @Html.ActionLink("Join for free", "Index", "Home", new { area = "" }, new { @class = "JoinFreeButton btn btn-warning" })
+        </div>
+    </div>
+    <img src="~/Content/Images/WelcomeImage.jpg" alt="research gate" />
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
