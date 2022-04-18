@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ResearchGate.Models.Author>
+
+@{
+    ViewBag.Title = "OUT";
+}
+
+<h2>OUT</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Author ID</th>
+            <th>Author Fname</th>
+            <th>Author Mname</th>
+            <th>Author Lname</th>
+            <th>Author ProfileImage</th>
+            <th>Author Universtiy</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="3" style="color:red">
+                    No Match Document
+                </td>
+            </tr>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Fname</td>
+                    <td>@item.Mname</td>
+                    <td>@item.Lname</td>
+                    <td>@item.ProfileImage</td>
+                    <td>@item.university</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,19 @@
+﻿@model IEnumerable<ResearchGate.Models.Author>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Tap</title>
+</head>
+<body>
+
+    @using (Html.BeginForm("OUT", "Search", FormMethod.Post))
+    {
+        @Html.TextBox("searching")<input type="submit" value="search" />
+    }
+
+</body>
