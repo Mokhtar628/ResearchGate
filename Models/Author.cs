@@ -11,6 +11,7 @@ namespace ResearchGate.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.Web;
     
     public partial class Author
     {
@@ -30,7 +31,9 @@ namespace ResearchGate.Models
         public string email { get; set; }
         public string Mobile { get; set; }
         public string university { get; set; }
-    
+
+        public HttpPostedFileBase ImageFile { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comment> Comments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
