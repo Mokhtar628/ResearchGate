@@ -7,13 +7,31 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link href="~/Style/Search.css" rel="stylesheet" />
     <title>Search Tap</title>
 </head>
 <body>
+    <nav>
+        <ul>
+            <li class="logo">ResearchGate</li>
+            <div class="items">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Account</a></li>
+            </div>
+            <li class="search-icon">
+                @using (Html.BeginForm("OUT", "Search", FormMethod.Post))
+                {
+                    <input type="text" placeholder="search" name="searching" />
+                    
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    
+                }
 
-    @using (Html.BeginForm("OUT", "Search", FormMethod.Post))
-    {
-        @Html.TextBox("searching")<input type="submit" value="search" />
-    }
+            </li>
+        </ul>
+    </nav>
+
+
 
 </body>

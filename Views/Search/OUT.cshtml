@@ -4,40 +4,64 @@
     ViewBag.Title = "OUT";
 }
 
-<h2>OUT</h2>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Author ID</th>
-            <th>Author Fname</th>
-            <th>Author Mname</th>
-            <th>Author Lname</th>
-            <th>Author ProfileImage</th>
-            <th>Author Universtiy</th>
-        </tr>
-    </thead>
-    <tbody>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link href="~/Style/Search.css" rel="stylesheet" />
+    <link href="~/Style/Searchoutput.css" rel="stylesheet" />
+    <title>Search Tap</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li class="logo">ResearchGate</li>
+            <div class="items">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Account</a></li>
+            </div>
+            <li class="search-icon">
+                @using (Html.BeginForm("OUT", "Search", FormMethod.Post))
+                {
+                    <input type="text" placeholder="search" name="searching" />
+
+                    <button type="submit"><i class="fa fa-search"></i></button>
+
+                }
+
+            </li>
+        </ul>
+    </nav>
+    <div class="container">
         @if (Model.Count() == 0)
         {
-            <tr>
-                <td colspan="3" style="color:red">
-                    No Match Document
-                </td>
-            </tr>
+            <p colspan="3" style="color:red">
+                No Match Document
+            </p>
         }
         else
         {
             foreach (var item in Model)
             {
-                <tr>
-                    <td>@item.Fname</td>
-                    <td>@item.Mname</td>
-                    <td>@item.Lname</td>
-                    <td>@item.ProfileImage</td>
-                    <td>@item.university</td>
-                </tr>
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="photo">
+                        <div class="col-md-4">
+                            <img src="~/Content/Images/@item.ProfileImage" class="card-img" alt="..." style="height:100px;width:100px;">
+                        </div>
+                    </div>
+                        <div class="info">
+                            <h5 class="card-title"><a href="#">@item.Fname @item.Mname @item.Lname</a></h5>
+                            <p class="card-text">@item.university</p>
+                        </div>
+                    
+                </div>
+            </div>
+
             }
         }
-    </tbody>
-</table>
+    </div>
+</body>
+
+
 

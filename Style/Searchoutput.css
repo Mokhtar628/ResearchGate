@@ -1,0 +1,59 @@
+﻿*, ::after, ::before {
+    box-sizing: border-box;
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .50rem;
+    width:60%;
+    margin:10px;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(var(--bs-gutter-y) * -1);
+    margin-right: calc(var(--bs-gutter-x) * -.5);
+    margin-left: calc(var(--bs-gutter-x) * -.5);
+}
+
+.g-0, .gx-0 {
+    --bs-gutter-x: 0;
+}
+.g-0, .gy-0 {
+    --bs-gutter-y: 0;
+}
+
+.card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+
+.container {
+    width: 1200px;
+    margin: auto;
+}
+.photo{
+    
+    width:40%;
+}
+.info {
+    width: 60%;
+    margin-top: 30px;
+}
+.card-title a {
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    
+}
+a:hover {
+    color: cyan;
+}
+p {
+    color: darkslategrey;
+}
