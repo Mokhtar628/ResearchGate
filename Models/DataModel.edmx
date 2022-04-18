@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ResearchGateDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Artical">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="50" />
+          <Property Name="Paper" Type="varchar" MaxLength="50" />
+          <Property Name="abstract" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fname" Type="varchar" MaxLength="50" />
+          <Property Name="Mname" Type="varchar" MaxLength="50" />
+          <Property Name="Lname" Type="varchar" MaxLength="50" />
+          <Property Name="pass" Type="varchar" MaxLength="50" />
+          <Property Name="ProfileImage" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="Mobile" Type="varchar" MaxLength="15" />
+          <Property Name="university" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Collaborators">
+          <Key>
+            <PropertyRef Name="ArticalID" />
+            <PropertyRef Name="AuthorID" />
+          </Key>
+          <Property Name="ArticalID" Type="int" Nullable="false" />
+          <Property Name="AuthorID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="comment" Type="varchar" MaxLength="500" />
+          <Property Name="dates" Type="date" />
+          <Property Name="ArticalID" Type="int" />
+          <Property Name="AuthorID" Type="int" />
+        </EntityType>
+        <Association Name="FK__Collabora__Artic__276EDEB3">
+          <End Role="Artical" Type="Self.Artical" Multiplicity="1" />
+          <End Role="Collaborators" Type="Self.Collaborators" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artical">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Collaborators">
+              <PropertyRef Name="ArticalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Collabora__Autho__286302EC">
+          <End Role="Author" Type="Self.Author" Multiplicity="1" />
+          <End Role="Collaborators" Type="Self.Collaborators" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Collaborators">
+              <PropertyRef Name="AuthorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Comment__Artical__2B3F6F97">
+          <End Role="Artical" Type="Self.Artical" Multiplicity="0..1" />
+          <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artical">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="ArticalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Comment__AuthorI__2C3393D0">
+          <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+          <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="AuthorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ResearchGateDatabaseModelStoreContainer">
+          <EntitySet Name="Artical" EntityType="Self.Artical" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Collaborators" EntityType="Self.Collaborators" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Collabora__Artic__276EDEB3" Association="Self.FK__Collabora__Artic__276EDEB3">
+            <End Role="Artical" EntitySet="Artical" />
+            <End Role="Collaborators" EntitySet="Collaborators" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Collabora__Autho__286302EC" Association="Self.FK__Collabora__Autho__286302EC">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Collaborators" EntitySet="Collaborators" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Comment__Artical__2B3F6F97" Association="Self.FK__Comment__Artical__2B3F6F97">
+            <End Role="Artical" EntitySet="Artical" />
+            <End Role="Comment" EntitySet="Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Comment__AuthorI__2C3393D0" Association="Self.FK__Comment__AuthorI__2C3393D0">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Comment" EntitySet="Comment" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ResearchGateDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Artical">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Paper" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="abstract" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Comments" Relationship="Self.FK__Comment__Artical__2B3F6F97" FromRole="Artical" ToRole="Comment" />
+          <NavigationProperty Name="Authors" Relationship="Self.Collaborators" FromRole="Artical" ToRole="Author" />
+        </EntityType>
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Lname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProfileImage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="university" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Comments" Relationship="Self.FK__Comment__AuthorI__2C3393D0" FromRole="Author" ToRole="Comment" />
+          <NavigationProperty Name="Articals" Relationship="Self.Collaborators" FromRole="Author" ToRole="Artical" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="comment1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="dates" Type="DateTime" Precision="0" />
+          <Property Name="ArticalID" Type="Int32" />
+          <Property Name="AuthorID" Type="Int32" />
+          <NavigationProperty Name="Artical" Relationship="Self.FK__Comment__Artical__2B3F6F97" FromRole="Comment" ToRole="Artical" />
+          <NavigationProperty Name="Author" Relationship="Self.FK__Comment__AuthorI__2C3393D0" FromRole="Comment" ToRole="Author" />
+        </EntityType>
+        <Association Name="FK__Comment__Artical__2B3F6F97">
+          <End Role="Artical" Type="Self.Artical" Multiplicity="0..1" />
+          <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artical">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="ArticalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Comment__AuthorI__2C3393D0">
+          <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+          <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="AuthorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Collaborators">
+          <End Role="Artical" Type="Self.Artical" Multiplicity="*" />
+          <End Role="Author" Type="Self.Author" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="ResearchGateDatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Articals" EntityType="Self.Artical" />
+          <EntitySet Name="Authors" EntityType="Self.Author" />
+          <EntitySet Name="Comments" EntityType="Self.Comment" />
+          <AssociationSet Name="FK__Comment__Artical__2B3F6F97" Association="Self.FK__Comment__Artical__2B3F6F97">
+            <End Role="Artical" EntitySet="Articals" />
+            <End Role="Comment" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Comment__AuthorI__2C3393D0" Association="Self.FK__Comment__AuthorI__2C3393D0">
+            <End Role="Author" EntitySet="Authors" />
+            <End Role="Comment" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="Collaborators" Association="Self.Collaborators">
+            <End Role="Artical" EntitySet="Articals" />
+            <End Role="Author" EntitySet="Authors" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ResearchGateDatabaseModelStoreContainer" CdmEntityContainer="ResearchGateDatabaseEntities">
+          <EntitySetMapping Name="Articals">
+            <EntityTypeMapping TypeName="ResearchGateDatabaseModel.Artical">
+              <MappingFragment StoreEntitySet="Artical">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="Paper" ColumnName="Paper" />
+                <ScalarProperty Name="abstract" ColumnName="abstract" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Authors">
+            <EntityTypeMapping TypeName="ResearchGateDatabaseModel.Author">
+              <MappingFragment StoreEntitySet="Author">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Fname" ColumnName="Fname" />
+                <ScalarProperty Name="Mname" ColumnName="Mname" />
+                <ScalarProperty Name="Lname" ColumnName="Lname" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="ProfileImage" ColumnName="ProfileImage" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="university" ColumnName="university" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="ResearchGateDatabaseModel.Comment">
+              <MappingFragment StoreEntitySet="Comment">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="comment1" ColumnName="comment" />
+                <ScalarProperty Name="dates" ColumnName="dates" />
+                <ScalarProperty Name="ArticalID" ColumnName="ArticalID" />
+                <ScalarProperty Name="AuthorID" ColumnName="AuthorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Collaborators" TypeName="ResearchGateDatabaseModel.Collaborators" StoreEntitySet="Collaborators">
+            <EndProperty Name="Artical">
+              <ScalarProperty Name="ID" ColumnName="ArticalID" />
+            </EndProperty>
+            <EndProperty Name="Author">
+              <ScalarProperty Name="ID" ColumnName="AuthorID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

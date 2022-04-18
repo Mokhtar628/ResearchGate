@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ResearchGateDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Artical">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="50" />
+    <Property Name="Paper" Type="varchar" MaxLength="50" />
+    <Property Name="abstract" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Author">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fname" Type="varchar" MaxLength="50" />
+    <Property Name="Mname" Type="varchar" MaxLength="50" />
+    <Property Name="Lname" Type="varchar" MaxLength="50" />
+    <Property Name="pass" Type="varchar" MaxLength="50" />
+    <Property Name="ProfileImage" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="Mobile" Type="varchar" MaxLength="15" />
+    <Property Name="university" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Collaborators">
+    <Key>
+      <PropertyRef Name="ArticalID" />
+      <PropertyRef Name="AuthorID" />
+    </Key>
+    <Property Name="ArticalID" Type="int" Nullable="false" />
+    <Property Name="AuthorID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="comment" Type="varchar" MaxLength="500" />
+    <Property Name="dates" Type="date" />
+    <Property Name="ArticalID" Type="int" />
+    <Property Name="AuthorID" Type="int" />
+  </EntityType>
+  <Association Name="FK__Collabora__Artic__276EDEB3">
+    <End Role="Artical" Type="Self.Artical" Multiplicity="1" />
+    <End Role="Collaborators" Type="Self.Collaborators" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artical">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Collaborators">
+        <PropertyRef Name="ArticalID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Collabora__Autho__286302EC">
+    <End Role="Author" Type="Self.Author" Multiplicity="1" />
+    <End Role="Collaborators" Type="Self.Collaborators" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Author">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Collaborators">
+        <PropertyRef Name="AuthorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Comment__Artical__2B3F6F97">
+    <End Role="Artical" Type="Self.Artical" Multiplicity="0..1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artical">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="ArticalID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Comment__AuthorI__2C3393D0">
+    <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Author">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="AuthorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ResearchGateDatabaseModelStoreContainer">
+    <EntitySet Name="Artical" EntityType="Self.Artical" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Collaborators" EntityType="Self.Collaborators" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Collabora__Artic__276EDEB3" Association="Self.FK__Collabora__Artic__276EDEB3">
+      <End Role="Artical" EntitySet="Artical" />
+      <End Role="Collaborators" EntitySet="Collaborators" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Collabora__Autho__286302EC" Association="Self.FK__Collabora__Autho__286302EC">
+      <End Role="Author" EntitySet="Author" />
+      <End Role="Collaborators" EntitySet="Collaborators" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Comment__Artical__2B3F6F97" Association="Self.FK__Comment__Artical__2B3F6F97">
+      <End Role="Artical" EntitySet="Artical" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Comment__AuthorI__2C3393D0" Association="Self.FK__Comment__AuthorI__2C3393D0">
+      <End Role="Author" EntitySet="Author" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

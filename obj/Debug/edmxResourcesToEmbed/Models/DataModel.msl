@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ResearchGateDatabaseModelStoreContainer" CdmEntityContainer="ResearchGateDatabaseEntities">
+    <EntitySetMapping Name="Articals">
+      <EntityTypeMapping TypeName="ResearchGateDatabaseModel.Artical">
+        <MappingFragment StoreEntitySet="Artical">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="Paper" ColumnName="Paper" />
+          <ScalarProperty Name="abstract" ColumnName="abstract" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Authors">
+      <EntityTypeMapping TypeName="ResearchGateDatabaseModel.Author">
+        <MappingFragment StoreEntitySet="Author">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Fname" ColumnName="Fname" />
+          <ScalarProperty Name="Mname" ColumnName="Mname" />
+          <ScalarProperty Name="Lname" ColumnName="Lname" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="ProfileImage" ColumnName="ProfileImage" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="university" ColumnName="university" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="ResearchGateDatabaseModel.Comment">
+        <MappingFragment StoreEntitySet="Comment">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="comment1" ColumnName="comment" />
+          <ScalarProperty Name="dates" ColumnName="dates" />
+          <ScalarProperty Name="ArticalID" ColumnName="ArticalID" />
+          <ScalarProperty Name="AuthorID" ColumnName="AuthorID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Collaborators" TypeName="ResearchGateDatabaseModel.Collaborators" StoreEntitySet="Collaborators">
+      <EndProperty Name="Artical">
+        <ScalarProperty Name="ID" ColumnName="ArticalID" />
+      </EndProperty>
+      <EndProperty Name="Author">
+        <ScalarProperty Name="ID" ColumnName="AuthorID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
