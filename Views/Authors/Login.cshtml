@@ -1,0 +1,81 @@
+﻿@model ResearchGate.Models.Author
+
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title Research Gate</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/SignInAndUp/SignInAndUp.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-fixed-top nav-style">
+        <div class="container">
+            <div class="navbar-header">
+                <span class="navbar-brand">Research Gate</span>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav"></ul>
+            </div>
+        </div>
+    </div>
+
+    @using (Html.BeginForm("Login", "Authors", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-horizontal form-div">
+        <h3>LogIn</h3>
+        <h6>Please fill the following form</h6>
+        <hr width="400vh" />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <label>E-mail</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.pass, new { htmlAttributes = new { @class = "form-control", @type = "password" } })
+                @Html.ValidationMessageFor(model => model.pass, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="submit" value="Login" class="btn btn-default form-control" />
+            </div>
+        </div>
+    </div>
+        <br />
+        <br />
+    }
+
+
+    <div style="position:absolute;bottom:0px;left:5px;margin-top:100%">
+        <p>&copy; @DateTime.Now.Year - FCAI internet application project</p>
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+
+
