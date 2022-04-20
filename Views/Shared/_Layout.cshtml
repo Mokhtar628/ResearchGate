@@ -21,15 +21,16 @@
                 <li class="buttonStyle margin-left"><a href="/Authors/UserDashBoard"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
             </ul>
 
-            <ul>
-                @using (Html.BeginForm("OUT", "Search", FormMethod.Post))
-                {
-                    <input type="text" placeholder="search" name="searching" />
+            <ul class="nav navbar-nav search-ul">
+                <div class="search-container">
+                    @using (Html.BeginForm("OUT", "Search", FormMethod.Post))
+                    {
+                        <input type="text" placeholder="Search for researchers" name="searching">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    }
+                </div>
 
-                    <button type="submit"><i class="fa fa-search"></i></button>
-
-                }
-            </ul>
+                </ul>
 
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown" style="padding:5px">
