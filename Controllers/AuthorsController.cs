@@ -27,19 +27,18 @@ namespace ResearchGate.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Fname,Mname,Lname,pass,ProfileImage,email,Mobile,university")] Author author)
+        public ActionResult Create([Bind(Include = "ID,Fname,Mname,Lname,pass,ProfileImage,email,Mobile,university,ImageFile")] Author author)
         {
             if (ModelState.IsValid)
             {
-                ////string fileName = Path.GetFileNameWithoutExtension(author.ImageFile.FileName);
-                //string fileName = Path.GetFileNameWithoutExtension(author.ProfileImage);
-                //string extension = Path.GetExtension(author.ImageFile.FileName)
-                string fileName =author.ProfileImage;
-                string extension = Path.GetExtension(author.ProfileImage);
-                fileName = DateTime.Now.ToString("yymmssfff") + fileName;
+                //TO DO: check if user didnot enter image and pass the default profile image
+                string fileName = Path.GetFileNameWithoutExtension(author.ImageFile.FileName);
+                string extension = Path.GetExtension(author.ImageFile.FileName);
+                fileName = DateTime.Now.ToString("yymmssfff") + fileName + extension;
                 author.ProfileImage = "~/UsersImage/" + fileName;
-                fileName = Path.Combine(Server.MapPath("~/UsersImage"), fileName);
-                //author.ImageFile.SaveAs(fileName);
+                fileName = Path.Combine(Server.MapPath("~/UsersImage/"), fileName);
+                author.ImageFile.SaveAs(fileName);
+
                 db.Authors.Add(author);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -80,8 +79,54 @@ namespace ResearchGate.Controllers
             return View(author);
         }
 
-        
 
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(Author author)
+        {
+            if (ModelState.IsValid)
+            {
+                using (ResearchGateDatabaseEntities db = new ResearchGateDatabaseEntities())
+                {
+                    var obj = db.Authors.Where(a => a.email.Equals(author.email) && a.pass.Equals(author.pass)).FirstOrDefault();
+                    if (obj != null)
+                    {
+                        Session["ID"] = obj.ID.ToString();
+                        Session["email"] = obj.email.ToString();
+                        //Session["Fname"] = obj.Fname.ToString();
+                        //Session["Lname"] = obj.Lname.ToString();
+                        return RedirectToAction("UserDashBoard");
+                    }
+                }
+            }
+            return View(author);
+        }
+
+        public ActionResult UserDashBoard()
+        {
+            if (Session["ID"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+        }
+
+        
+        public ActionResult LogOut()
+        {
+            Session.Clear();
+            Session.RemoveAll();
+            Session.Abandon();
+            return RedirectToAction("Login");
+        }
 
         protected override void Dispose(bool disposing)
         {

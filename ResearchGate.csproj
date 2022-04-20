@@ -100,11 +100,21 @@
     <Content Include="App_Data\ResearchGateDatabase_log.ldf">
       <DependentUpon>ResearchGateDatabase.mdf</DependentUpon>
     </Content>
+    <Content Include="bin\ResearchGate.dll" />
+    <Content Include="bin\ResearchGate.pdb" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\400086900245_378875.jpg" />
+    <Content Include="Content\Images\IMG_20211008_195202.jpg" />
+    <Content Include="Content\Images\profImg.png" />
+    <Content Include="Content\Images\RG.png" />
+    <Content Include="Content\Images\WelcomeImage.jpg" />
+    <Content Include="Content\Layout\Navbar.css" />
+    <Content Include="Content\SignInAndUp\SignInAndUp.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\Welcome\Welcome.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Models\DataModel.Context.tt">
@@ -137,7 +147,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AuthorsController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\WelcomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -165,6 +177,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -182,6 +197,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\Search\OUT.cshtml" />
+    <Content Include="Views\Authors\Create.cshtml" />
+    <Content Include="Views\Welcome\Index.cshtml" />
+    <Content Include="Views\Authors\Login.cshtml" />
+    <Content Include="Views\Authors\UserDashBoard.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -191,6 +210,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />
+    <Folder Include="UsersImage\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

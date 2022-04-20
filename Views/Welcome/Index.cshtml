@@ -18,8 +18,8 @@
             <div class="navbar-header">
                 <span class="navbar-brand">Research Gate</span>
                 <span class="nav-buttons">
-                    @Html.ActionLink("Log In", "Index", "Home", new { area = "" }, new { @class = "logInButton" })
-                    @Html.ActionLink("Join for free", "Index", "Home", new { area = "" }, new { @class = "SignUpButton" })
+                    @Html.ActionLink("Log In", "Login", "Authors", new { area = "" }, new { @class = "logInButton" })
+                    @Html.ActionLink("Join for free", "Create", "Authors", new { area = "" }, new { @class = "SignUpButton" })
                 </span>
             </div>
             <div class="navbar-collapse collapse">
@@ -31,7 +31,7 @@
     <div class="container lower-div">
         <div class="welcome-text">
             <h1>Discover scientific knowledge and stay connected to the world of science</h1>
-            @Html.ActionLink("Join for free", "Index", "Home", new { area = "" }, new { @class = "JoinFreeButton btn btn-warning" })
+            @Html.ActionLink("Join for free", "Create", "Authors", new { area = "" }, new { @class = "JoinFreeButton btn btn-warning" })
         </div>
     </div>
     <img src="~/Content/Images/WelcomeImage.jpg" alt="research gate" />
