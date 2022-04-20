@@ -7,11 +7,11 @@
 <fieldset>
     <legend> User DashBoard </legend>
 
-@if (Session["email"] != null)
-{
-    <text>
-    Welcome @Session["email"].ToString()  
-    </text>
-} 
+    @if (Session["Fname"] != null)
+    {
+        <text>
+            Welcome @Session["Fname"].ToString()  @Session["ProfileImage"].ToString()
+        </text>
+    }
 </fieldset>
 

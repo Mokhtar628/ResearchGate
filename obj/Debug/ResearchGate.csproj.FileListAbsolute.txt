@@ -143,4 +143,3 @@ E:\faculty\level 3\second term\ia\ResearchGate\ResearchGate\obj\Debug\ResearchGa
 E:\faculty\level 3\second term\ia\ResearchGate\ResearchGate\obj\Debug\ResearchGate.csproj.CopyComplete
 E:\faculty\level 3\second term\ia\ResearchGate\ResearchGate\obj\Debug\ResearchGate.dll
 E:\faculty\level 3\second term\ia\ResearchGate\ResearchGate\obj\Debug\ResearchGate.pdb
-X:\FCIH Mohammed\level 3 semester 2\Projects\ResearchGate\ResearchGate\obj\Debug\ResearchGate.csprojAssemblyReference.cache

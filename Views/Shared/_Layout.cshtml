@@ -1,9 +1,10 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/Layout/Navbar.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -13,14 +14,14 @@
     <nav class="navbar nav-style">
         <div class="container-fluid">
             <div class="navbar-header">
-                <img src="~/Content/Images/RG.png" alt="Research Gate" style="max-height:56px"/>
+                <img src="~/Content/Images/RG.png" alt="Research Gate" style="max-height:56px" />
             </div>
             <ul class="nav navbar-nav">
                 <li class="buttonStyle margin-left"><a href="/Authors/UserDashBoard"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown" style="padding:5px">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding:0px !important;margin:0px  !important"><img src="~/Content/Images/profImg.png" style="max-height:45px" alt="@Session["email"].ToString()" /> <span class="caret"></span></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding:0px !important;margin:0px  !important"><img src="@Url.Content(Session["ProfileImage"].ToString())" style="border-radius: 15px;max-height:45px" alt="@Session["email"].ToString()" /> <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Your profile</a></li>
                         <li><a href="/Authors/logOut">Log out</a></li>
@@ -33,7 +34,7 @@
 
     <div class="container body-content">
         @RenderBody()
-        
+
     </div>
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
