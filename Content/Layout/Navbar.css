@@ -28,11 +28,44 @@ body {
     padding-top: 70px;
 }
 
-@media(max-width: 769px){
+.search-container {
+    padding: 9px;
+    text-align: center;
+}
+
+
+.search-container input {
+    outline: none !important;
+    border: 0.5px solid gray !important;
+    width: 50vh;
+    height: 5vh;
+}
+.search-container button {
+    outline: none !important;
+    border: 0.5px solid gray !important;
+    background-color: white;
+    height: 5vh;
+}
+
+.search-ul {
+    margin-left: 25% !important;
+}
+
+@media(max-width: 859px) {
+    .search-ul {
+        margin-left: 10% !important;
+    }
+
+}
+
+@media(max-width: 769px) {
     body {
         padding-top: 240px;
     }
     li{
         text-align:center
+    }
+    .search-ul {
+        margin-left: 13% !important;
     }
 }
