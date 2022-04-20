@@ -138,8 +138,8 @@ E:\faculty\level 3\second term\ia\ResearchGate\ResearchGate\bin\System.Web.Webpa
 E:\faculty\level 3\second term\ia\ResearchGate\ResearchGate\bin\System.Web.Helpers.xml
 E:\faculty\level 3\second term\ia\ResearchGate\ResearchGate\bin\System.Web.Mvc.xml
 E:\faculty\level 3\second term\ia\ResearchGate\ResearchGate\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-E:\faculty\level 3\second term\ia\ResearchGate\ResearchGate\obj\Debug\ResearchGate.csprojAssemblyReference.cache
 E:\faculty\level 3\second term\ia\ResearchGate\ResearchGate\obj\Debug\ResearchGate.csproj.CoreCompileInputs.cache
 E:\faculty\level 3\second term\ia\ResearchGate\ResearchGate\obj\Debug\ResearchGate.csproj.CopyComplete
 E:\faculty\level 3\second term\ia\ResearchGate\ResearchGate\obj\Debug\ResearchGate.dll
 E:\faculty\level 3\second term\ia\ResearchGate\ResearchGate\obj\Debug\ResearchGate.pdb
+E:\faculty\level 3\second term\ia\ResearchGate\ResearchGate\obj\Debug\ResearchGate.csprojAssemblyReference.cache

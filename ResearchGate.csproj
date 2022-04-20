@@ -112,6 +112,7 @@
     <Content Include="Content\Images\RG.png" />
     <Content Include="Content\Images\WelcomeImage.jpg" />
     <Content Include="Content\Layout\Navbar.css" />
+    <Content Include="Content\Search\Searchoutput.css" />
     <Content Include="Content\SignInAndUp\SignInAndUp.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\Welcome\Welcome.css" />
@@ -141,8 +142,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Style\Search.css" />
-    <Content Include="Style\Searchoutput.css" />
+    <Content Include="UsersImage\222906084IMG_20211008_195202.jpg" />
+    <Content Include="UsersImage\225700450me.JPG" />
+    <Content Include="UsersImage\profImg.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -195,7 +197,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\Search\OUT.cshtml" />
     <Content Include="Views\Authors\Create.cshtml" />
     <Content Include="Views\Welcome\Index.cshtml" />
@@ -208,10 +209,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\" />
-    <Folder Include="UsersImage\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
