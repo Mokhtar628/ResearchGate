@@ -32,16 +32,27 @@ namespace ResearchGate.Controllers
             if (ModelState.IsValid)
             {
                 //TO DO: check if user didnot enter image and pass the default profile image
-                string fileName = Path.GetFileNameWithoutExtension(author.ImageFile.FileName);
-                string extension = Path.GetExtension(author.ImageFile.FileName);
-                fileName = DateTime.Now.ToString("yymmssfff") + fileName + extension;
-                author.ProfileImage = "~/UsersImage/" + fileName;
-                fileName = Path.Combine(Server.MapPath("~/UsersImage/"), fileName);
-                author.ImageFile.SaveAs(fileName);
+
+                if (object.ReferenceEquals(author.ImageFile, null))
+                {
+                    author.ProfileImage = "~/UsersImage/profImg.png";
+
+                }
+                else
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(author.ImageFile.FileName);
+                    string extension = Path.GetExtension(author.ImageFile.FileName);
+                    fileName = DateTime.Now.ToString("yymmssfff") + fileName + extension;
+                    author.ProfileImage = "~/UsersImage/" + fileName;
+                    fileName = Path.Combine(Server.MapPath("~/UsersImage/"), fileName);
+                    author.ImageFile.SaveAs(fileName);
+                }
+                
 
                 db.Authors.Add(author);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                ViewData["success"] = "You registered successfully.";
+                return RedirectToAction("Login");
             }
 
             return View(author);
@@ -98,9 +109,14 @@ namespace ResearchGate.Controllers
                     {
                         Session["ID"] = obj.ID.ToString();
                         Session["email"] = obj.email.ToString();
-                        //Session["Fname"] = obj.Fname.ToString();
-                        //Session["Lname"] = obj.Lname.ToString();
+                        Session["Fname"] = obj.Fname.ToString();
+                        Session["Lname"] = obj.Lname.ToString();
+                        Session["ProfileImage"] = obj.ProfileImage.ToString();
                         return RedirectToAction("UserDashBoard");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("LoginError", "Sorry, you entered incorrect data.");
                     }
                 }
             }
