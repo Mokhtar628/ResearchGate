@@ -16,8 +16,8 @@ namespace ResearchGate.Controllers
 
         public ActionResult OUT(string searching)
         {
-
-            return View(db.Authors.Where(x => x.Fname.Contains(searching) || x.email.Contains(searching)).ToList());
+            searching = searching.ToLower();
+            return View(db.Authors.Where(x => x.Fname.ToLower().Contains(searching) || x.email.ToLower().Contains(searching) || x.university.ToLower().Contains(searching)).ToList());
         }
     }
 }
