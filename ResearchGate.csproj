@@ -102,11 +102,13 @@
     </Content>
     <Content Include="bin\ResearchGate.dll" />
     <Content Include="bin\ResearchGate.pdb" />
+    <Content Include="Content\addResearch\iconContainer.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\profImg.png" />
+    <Content Include="Content\Images\publication-creation-grey.png" />
     <Content Include="Content\Images\RG.png" />
     <Content Include="Content\Images\WelcomeImage.jpg" />
     <Content Include="Content\Layout\Navbar.css" />
@@ -147,6 +149,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AddArticalsController.cs" />
     <Compile Include="Controllers\AuthorsController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\WelcomeController.cs" />
@@ -200,6 +203,11 @@
     <Content Include="Views\Welcome\Index.cshtml" />
     <Content Include="Views\Authors\Login.cshtml" />
     <Content Include="Views\Authors\UserDashBoard.cshtml" />
+    <Content Include="Views\AddArticals\Create.cshtml" />
+    <Content Include="Views\AddArticals\Delete.cshtml" />
+    <Content Include="Views\AddArticals\Details.cshtml" />
+    <Content Include="Views\AddArticals\Edit.cshtml" />
+    <Content Include="Views\AddArticals\SelectFile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -207,7 +215,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
