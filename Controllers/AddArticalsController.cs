@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ResearchGate.Models;
+using System.IO;
 
 namespace ResearchGate.Controllers
 {
@@ -15,11 +16,83 @@ namespace ResearchGate.Controllers
         private ResearchGateDatabaseEntities db = new ResearchGateDatabaseEntities();
 
 
-        // GET: AddArticals
-        public ActionResult SelectFile()
+       
+
+        public ActionResult ArticalDetails()
         {
-                return View();
+
+            return View();
         }
+
+        // POST: AddArticals/ArticalDetails
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ArticalDetails([Bind(Include = "ID,title,Paper,abstract,pdfFile,collaboratorsText")] Artical artical)
+        {
+           
+
+            if (ModelState.IsValid)
+             {
+                 string fileName = Path.GetFileNameWithoutExtension(artical.pdfFile.FileName);
+                 string extension = Path.GetExtension(artical.pdfFile.FileName);
+                 fileName = DateTime.Now.ToString("yymmssfff") + fileName + extension;
+                 artical.Paper = "~/Papers/" + fileName;
+                 fileName = Path.Combine(Server.MapPath("~/Papers/"), fileName);
+                 artical.pdfFile.SaveAs(fileName);
+                 db.Articals.Add(artical);
+                 db.SaveChanges();
+                 //return RedirectToAction("Index"); // change it to article overview 
+             }
+
+            Artical lastArticalAdded = db.Articals.OrderByDescending(p => p.ID).First();
+            string groupOfEmail = artical.collaboratorsText;
+            List<string> listStrLineElements = groupOfEmail.Split(' ').ToList();
+            List<int> collaboratorsId = getId_emails(listStrLineElements);
+            addCollaborators(collaboratorsId, lastArticalAdded.ID);
+
+
+            return View(artical);
+        }
+
+
+        public List<int> getId_emails(List<string> collaborators_email)
+           {
+            List < int > collaboratorsId= new List<int>();
+            
+            foreach (var email in collaborators_email)
+            {
+                
+                var obj = db.Authors.Where(a => a.email.Equals(email)).FirstOrDefault();
+                if (obj != null)
+                {
+                    collaboratorsId.Add(obj.ID);
+                }
+            }
+            return collaboratorsId ;
+           }
+
+
+        public void addCollaborators (List<int> coId,int articaleId)
+        {
+
+            Artical artical = db.Articals.Find(articaleId);
+            foreach (var item in coId)
+            {
+                
+                Author author = db.Authors.Find(item);
+                artical.Authors.Add(author);
+               
+            }
+            db.SaveChanges();
+
+        }
+
+
+
+
+
 
         // GET: AddArticals/Details/5
         public ActionResult Details(int? id)
@@ -36,28 +109,15 @@ namespace ResearchGate.Controllers
             return View(artical);
         }
 
+
+
         // GET: AddArticals/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: AddArticals/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,title,Paper,abstract")] Artical artical)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Articals.Add(artical);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(artical);
-        }
+       
 
         // GET: AddArticals/Edit/5
         public ActionResult Edit(int? id)

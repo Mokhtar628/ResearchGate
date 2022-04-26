@@ -10,8 +10,26 @@
 }
 .backContainer{
     height:410px;
-    background-color:whitesmoke;
+    background-color :whitesmoke;
 
+}
+.backContainer2 {
+    height: 900px;
+    background-color: whitesmoke;
+}
+.detailscontainer {
+    
+    margin-left: 405px;
+    width: 657px;
+    height: 700px;
+    background-color: white;
+}
+.a_container {
+    width: 590px;
+    border: 1px solid black;
+    padding: 8px;
+    margin-left: 35px;
+    background-color:whitesmoke;
 }
 .selectfileContainer {
    
@@ -35,3 +53,40 @@
     border-right: 1px solid #ddd;
     border-left: 1px solid #ddd;
 }
+.button {
+    transition-duration: 0.4s;
+    background-color: white;
+    color: #0080ff;
+    border: 1px solid #0080ff;
+    border-radius: 2px;
+    margin-left: 35px;
+    margin-top:2px;
+    padding: 20px 161px;
+}
+
+  .button:hover {
+    background-color: #0080ff;
+    color: white;
+    }
+
+.skip {
+    margin-left:210px;
+    margin-top:21px;
+    text-align: left;
+    color: #0080ff;
+}
+.button2 {
+    transition-duration: 0.4s;
+    background-color: white;
+    color: #0080ff;
+    border: 1px solid #0080ff;
+    border-radius: 2px;
+    margin-left: 35px;
+    margin-top: 20px;
+    padding: 20px 160px;
+}
+
+    .button2:hover {
+        background-color: #0080ff;
+        color: white;
+    }

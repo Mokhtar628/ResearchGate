@@ -131,6 +131,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Papers\220329642529.pdf" />
+    <Content Include="Papers\223648787529.pdf" />
+    <Content Include="Papers\223825895529.pdf" />
+    <Content Include="Papers\224010568529.pdf" />
+    <Content Include="Papers\224700409529.pdf" />
+    <Content Include="Papers\225251747529.pdf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -207,7 +213,7 @@
     <Content Include="Views\AddArticals\Delete.cshtml" />
     <Content Include="Views\AddArticals\Details.cshtml" />
     <Content Include="Views\AddArticals\Edit.cshtml" />
-    <Content Include="Views\AddArticals\SelectFile.cshtml" />
+    <Content Include="Views\AddArticals\ArticalDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
