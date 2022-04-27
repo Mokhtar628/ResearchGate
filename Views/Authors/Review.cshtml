@@ -1,0 +1,65 @@
+﻿@model ResearchGate.Models.Author
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link href="~/Content/Layout/Navbar.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <nav class="navbar nav-style">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <img src="~/Content/Images/RG.png" alt="Research Gate" style="max-height:56px" />
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="buttonStyle margin-left"><a href="/Authors/UserDashBoard"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav search-ul">
+                <div class="search-container">
+                    @using (Html.BeginForm("OUT", "Search", FormMethod.Post))
+                    {
+                        <input type="text" placeholder="Search for researchers" name="searching">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    }
+                </div>
+
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown" style="padding:5px">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding:0px !important;margin:0px  !important"><img src="@Url.Content(Session["ProfileImage"].ToString())" style="border-radius: 15px;max-height:45px" alt="@Session["email"].ToString()" /> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/Authors/Review">Your profile</a></li>
+                        <li><a href="/Authors/logOut">Log out</a></li>
+                    </ul>
+                </li>
+                <li class="buttonStyle"><a href="/Authors/logOut"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div>
+        <img src="@Url.Content(Session["ProfileImage"].ToString())"  style="position: relative; width: 150px; height: 150px; overflow: hidden; border-radius: 50%;" />
+        <ul>
+            <li>@Model.Fname</li>
+            <li>@Model.Lname</li>
+            <li>@Model.university</li>
+        </ul>
+        <div>
+            <button><a href="/Authors/Edit">Edit</a></button>
+        </div>
+    </div>
+
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
+
+
