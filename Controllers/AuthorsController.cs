@@ -60,16 +60,17 @@ namespace ResearchGate.Controllers
 
 
         // GET: Authors/Edit/5
+        [HttpGet]
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+               // return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Author author = db.Authors.Find(id);
             if (author == null)
             {
-                return HttpNotFound();
+               // return HttpNotFound();
             }
             return View(author);
         }
@@ -79,13 +80,68 @@ namespace ResearchGate.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Fname,Mname,Lname,pass,ProfileImage,email,Mobile,university")] Author author)
+        public ActionResult Edit( HttpPostedFileBase ImageFile ,[Bind(Include = "ID,Fname,Mname,Lname,pass,ProfileImage,email,Mobile,university,ImageFile")] Author author )
         {
+            string email = Session["email"].ToString();
+            string pass = Session["pass"].ToString();
             if (ModelState.IsValid)
             {
-                db.Entry(author).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                using (ResearchGateDatabaseEntities db = new ResearchGateDatabaseEntities())
+                {
+                    var obj = db.Authors.Where(a => a.email.Equals(email) && a.pass.Equals(pass)).FirstOrDefault();
+                    if (obj != null)
+                    {
+                        if (author.Fname != null)
+                        {
+                            obj.Fname = author.Fname;
+                        }
+                        if (author.Mname != null)
+                        {
+                            obj.Mname = author.Mname;
+                        }
+                        if (author.Lname != null)
+                        {
+                            obj.Lname = author.Lname;
+                        }
+                        if (author.pass != null)
+                        {
+                            obj.pass = author.pass;
+                        }
+                        if (author.email != null)
+                        {
+                            obj.email = author.email;
+                        }
+                        if (author.Mobile != null)
+                        {
+                            obj.Mobile = author.Mobile;
+                        }
+                        if (ImageFile != null)
+                        {
+                            string fileName = Path.GetFileNameWithoutExtension(ImageFile.FileName);
+                            string extension = Path.GetExtension(ImageFile.FileName);
+                            fileName = DateTime.Now.ToString("yymmssfff") + fileName + extension;
+                            obj.ProfileImage = "~/UsersImage/" + fileName;
+                            fileName = Path.Combine(Server.MapPath("~/UsersImage/"), fileName);
+                            ImageFile.SaveAs(fileName);
+                        }
+                        if (author.university != null)
+                        {
+                            obj.university = author.university;
+                        }
+                    }
+                    db.Entry(obj).State = EntityState.Modified;
+                    db.SaveChanges();
+                    Session["ID"] = obj.ID.ToString();
+                    Session["email"] = obj.email.ToString();
+                    Session["Fname"] = obj.Fname.ToString();
+                    Session["Lname"] = obj.Lname.ToString();
+                    Session["ProfileImage"] = obj.ProfileImage.ToString();
+                    Session["university"] = obj.university.ToString();
+                    Session["Mname"] = obj.Mname.ToString();
+                    Session["pass"] = obj.pass.ToString();
+                    Session["Mobile"] = obj.Mobile.ToString();
+                    return RedirectToAction("Review");
+                }
             }
             return View(author);
         }
@@ -112,6 +168,13 @@ namespace ResearchGate.Controllers
                         Session["Fname"] = obj.Fname.ToString();
                         Session["Lname"] = obj.Lname.ToString();
                         Session["ProfileImage"] = obj.ProfileImage.ToString();
+                        Session["university"] = obj.university.ToString();
+                        Session["Mname"] = obj.Mname.ToString();
+                        Session["pass"] = obj.pass.ToString();
+                        Session["Mobile"] = obj.Mobile.ToString();
+
+
+                        
                         return RedirectToAction("UserDashBoard");
                     }
                     else
@@ -143,7 +206,15 @@ namespace ResearchGate.Controllers
             Session.Abandon();
             return RedirectToAction("Login");
         }
-
+        public ActionResult Review()
+        {
+            Author obj = new Author();
+            obj.Fname = Session["Fname"].ToString();
+            obj.Lname = Session["Lname"].ToString();
+            obj.university = Session["university"].ToString();
+            obj.ProfileImage = Session["ProfileImage"].ToString();
+            return View(obj);
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -152,5 +223,6 @@ namespace ResearchGate.Controllers
             }
             base.Dispose(disposing);
         }
+
     }
 }

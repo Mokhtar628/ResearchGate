@@ -7,7 +7,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{A79913D2-A49B-4491-831C-A8B3D1BA5A78}</ProjectGuid>
+    <ProjectGuid>{08EB39C0-CFC3-4046-9048-1D9FF2BC55D5}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -106,6 +106,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\EditStyle\Editcss.css" />
     <Content Include="Content\Images\profImg.png" />
     <Content Include="Content\Images\RG.png" />
     <Content Include="Content\Images\WelcomeImage.jpg" />
@@ -200,6 +201,9 @@
     <Content Include="Views\Welcome\Index.cshtml" />
     <Content Include="Views\Authors\Login.cshtml" />
     <Content Include="Views\Authors\UserDashBoard.cshtml" />
+    <Content Include="Views\Authors\profile.cshtml" />
+    <Content Include="Views\Authors\Review.cshtml" />
+    <Content Include="Views\Authors\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

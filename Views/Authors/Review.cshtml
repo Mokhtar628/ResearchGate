@@ -1,4 +1,4 @@
-﻿
+﻿@model ResearchGate.Models.Author
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +30,7 @@
                     }
                 </div>
 
-                </ul>
+            </ul>
 
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown" style="padding:5px">
@@ -44,13 +44,22 @@
             </ul>
         </div>
     </nav>
-
-    <div class="container body-content">
-        @RenderBody()
-
+    <div>
+        <img src="@Url.Content(Session["ProfileImage"].ToString())"  style="position: relative; width: 150px; height: 150px; overflow: hidden; border-radius: 50%;" />
+        <ul>
+            <li>@Model.Fname</li>
+            <li>@Model.Lname</li>
+            <li>@Model.university</li>
+        </ul>
+        <div>
+            <button><a href="/Authors/Edit">Edit</a></button>
+        </div>
     </div>
+
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
 </body>
 </html>
+
+
