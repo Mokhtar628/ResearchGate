@@ -215,6 +215,15 @@ namespace ResearchGate.Controllers
             obj.ProfileImage = Session["ProfileImage"].ToString();
             return View(obj);
         }
+        [HttpGet]
+        public ActionResult ReviewUserProfile(int id)
+        {
+            var obj = db.Authors.Where(a => a.ID.Equals(id)).FirstOrDefault();
+
+            return View(obj);
+        }
+ 
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -223,6 +232,7 @@ namespace ResearchGate.Controllers
             }
             base.Dispose(disposing);
         }
+
 
     }
 }

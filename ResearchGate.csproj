@@ -204,6 +204,7 @@
     <Content Include="Views\Authors\profile.cshtml" />
     <Content Include="Views\Authors\Review.cshtml" />
     <Content Include="Views\Authors\Edit.cshtml" />
+    <Content Include="Views\Authors\ReviewUserProfile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
