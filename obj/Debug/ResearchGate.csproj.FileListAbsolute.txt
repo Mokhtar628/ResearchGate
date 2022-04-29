@@ -212,7 +212,6 @@ E:\3rd 2nd\ResearchGate\ResearchGate\bin\System.Web.Webpages.Razor.xml
 E:\3rd 2nd\ResearchGate\ResearchGate\bin\System.Web.Helpers.xml
 E:\3rd 2nd\ResearchGate\ResearchGate\bin\System.Web.Mvc.xml
 E:\3rd 2nd\ResearchGate\ResearchGate\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-E:\3rd 2nd\ResearchGate\ResearchGate\obj\Debug\ResearchGate.csprojAssemblyReference.cache
 E:\3rd 2nd\ResearchGate\ResearchGate\obj\Debug\ResearchGate.csproj.CoreCompileInputs.cache
 E:\3rd 2nd\ResearchGate\ResearchGate\obj\Debug\ResearchGate.csproj.CopyComplete
 E:\3rd 2nd\ResearchGate\ResearchGate\obj\Debug\ResearchGate.dll
