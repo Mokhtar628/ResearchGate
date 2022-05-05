@@ -206,10 +206,19 @@ namespace ResearchGate.Controllers
             Session.Abandon();
             return RedirectToAction("Login");
         }
+        public ActionResult VisitProfile(int? id)
+        {
+            if (id == null)
+            {
+
+            }
+            return View(db.Authors.Find(id));
+        }
         public ActionResult Review()
         {
             Author obj = new Author();
             obj.Fname = Session["Fname"].ToString();
+            obj.Mname = Session["Mname"].ToString();
             obj.Lname = Session["Lname"].ToString();
             obj.university = Session["university"].ToString();
             obj.ProfileImage = Session["ProfileImage"].ToString();
