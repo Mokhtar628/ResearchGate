@@ -90,3 +90,24 @@
         background-color: #0080ff;
         color: white;
     }
+.ShowArticalUpper {
+    display: flex;
+    width: 900px;
+    height: 200px;
+    margin: auto;
+    background-color:whitesmoke;
+}
+.WordStyle {
+    text-align: center;
+    background-color: #C5E8E5;
+    color: #007478;
+    padding: 3px;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-bottom: 40px;
+    border-radius: 2px;
+  
+}
+.font {
+    font-family:"Roboto",Arial,sans-serif;
+}

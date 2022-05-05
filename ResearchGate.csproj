@@ -137,6 +137,7 @@
     <Content Include="Papers\224010568529.pdf" />
     <Content Include="Papers\224700409529.pdf" />
     <Content Include="Papers\225251747529.pdf" />
+    <Content Include="Papers\225003140529.pdf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -211,9 +212,10 @@
     <Content Include="Views\Authors\UserDashBoard.cshtml" />
     <Content Include="Views\AddArticals\Create.cshtml" />
     <Content Include="Views\AddArticals\Delete.cshtml" />
-    <Content Include="Views\AddArticals\Details.cshtml" />
     <Content Include="Views\AddArticals\Edit.cshtml" />
     <Content Include="Views\AddArticals\ArticalDetails.cshtml" />
+    <Content Include="Views\AddArticals\ShowArticalDetails.cshtml" />
+    <Content Include="Views\AddArticals\Comment.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

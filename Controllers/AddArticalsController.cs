@@ -15,9 +15,6 @@ namespace ResearchGate.Controllers
     {
         private ResearchGateDatabaseEntities db = new ResearchGateDatabaseEntities();
 
-
-       
-
         public ActionResult ArticalDetails()
         {
 
@@ -89,14 +86,18 @@ namespace ResearchGate.Controllers
 
         }
 
-
+        public ActionResult ShowArtical ()
+        {
+            return View();
+        }
 
 
 
 
         // GET: AddArticals/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult ShowArticalDetails(int? id=5)
         {
+            
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -107,6 +108,27 @@ namespace ResearchGate.Controllers
                 return HttpNotFound();
             }
             return View(artical);
+        }
+      public ActionResult Comment()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Comment([Bind(Include = "ID,comment,dates,ArticalId,AuthorID")] Comment comment)
+        {
+            //string date =DateTime.;
+
+            if (ModelState.IsValid)
+            {
+                comment.AuthorID = int.Parse(Session["ID"].ToString());
+                comment.dates = DateTime.Now;
+                db.Comments.Add(comment);
+                db.SaveChanges();
+            }
+
+           
+            return View(comment);
         }
 
 
