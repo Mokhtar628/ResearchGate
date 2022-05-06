@@ -1,0 +1,64 @@
+﻿@model ResearchGate.Models.Author
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link href="~/Content/Layout/Navbar.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+
+    <body>
+
+    <div class="container">
+
+        @using (Html.BeginForm("Edit", "Authors", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+
+        <form>
+            @Html.AntiForgeryToken()
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">First name</label>
+                    <input type="text" class="form-control" name="Fname" placeholder="">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPassword4">Last name</label>
+                    <input type="text" class="form-control" name="Lname" placeholder="">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputAddress">Password</label>
+                    <input type="password" class="form-control" name="pass" placeholder="">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputAddress2">University</label>
+                    <input type="text" class="form-control" name="university" placeholder="">
+                </div>
+            </div>
+            <div class="form-row" style="padding: 10% 40%">
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Edit profile photo</label>
+                    <input type="file" class="form-control-file" name="ImageFile">
+                </div>
+                <button type="submit" class="btn btn-success" value="save">Save</button>
+            </div>
+                
+        </form>
+            }
+
+   </div>
+
+
+    </body>
+
+
+</html>

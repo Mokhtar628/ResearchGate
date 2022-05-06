@@ -1,0 +1,64 @@
+﻿@model ResearchGate.Models.Author
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link href="~/Content/Layout/Navbar.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <div class="container" style="padding:5% 5%;">
+        <div class="card mb-3" style="max-width: 600px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="@Url.Content(Session["ProfileImage"].ToString())" class="img-circle" alt="..." style="height:100px;width:100px; float:right">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+
+                        <p class="card-title"><b>@Model.Fname @Model.Mname @Model.Lname</b></p>
+                        <p class="card-text">Degree . Position . <b>@Model.university</b></p>
+                        <a href="/Authors/Edit" class="btn btn-default" style="border:hidden;float:right; background-color:#0080FF; color:aliceblue">Add Project</a>
+                        <a href="/Authors/Edit" class="btn btn-default" style="border:hidden; float:right">Edit</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="card mb-3" style="max-width: 600px; border:2px solid #ccc; border-radius:5px;">
+            <div class="container">
+                <div style=" margin-top:5px;">
+                    <p style="color:#888; display:inline;">Business card</p>
+                    <a href="/Authors/Edit" class="btn btn-default" style="border:hidden; float:right; color:#888;">Edit</a>
+                </div>
+            <hr />
+            <div class="container" style=" padding:10px; border:1px solid #ccc; margin:10px;">
+                <div class="row g-0">
+                    <div class="col-md-8">
+                        <p class="card-title"><b>@Model.Fname @Model.Mname</b></p>
+                        <p style="  font-weight:700;color: #999;   font-size: 1rem;">Institution</p>
+                        <p class="card-text" style="font-size:13px;"><b>@Model.university</b></p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="@Url.Content(Session["ProfileImage"].ToString())" class="img-circle" alt="..." style="height:80px;width:80px; float:left">
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
+
+
