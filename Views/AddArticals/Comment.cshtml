@@ -1,0 +1,29 @@
+﻿@model ResearchGate.Models.Comment
+
+@{
+    ViewBag.Title = "WriteComments";
+}
+
+<h2>WriteComments</h2>
+@using (Html.BeginForm("Comment", "AddArticals", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <div class="form-group">
+        <label style="margin-top:15px;margin-left:35px;">Add Comment</label>
+        <br />
+        @Html.TextAreaFor(model => model.comment1, new { @class = "a_container" })
+
+    </div>
+    <br />
+
+    <input type="submit" value="Submit" />
+
+
+
+
+
+
+
+
+}
+
