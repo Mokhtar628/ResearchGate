@@ -190,7 +190,11 @@ namespace ResearchGate.Controllers
         {
             if (Session["ID"] != null)
             {
-                return View();
+                var articles = from t in db.Articals
+                               where true
+                               select t;
+               articles = articles.OrderByDescending(p => p.ID);
+                return View(articles);
             }
             else
             {

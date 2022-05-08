@@ -1,0 +1,31 @@
+﻿a{
+    color:black;
+}
+
+body {
+    background-color: #F4F4F4 !important
+}
+
+.article-div {
+    background-color: white;
+    max-width: 600px;
+    max-height: 300px;
+    margin-top: 7px;
+    box-shadow: 0 0 2px gray;
+    padding: 20px;
+    word-wrap: break-word;
+}
+
+.article-btn {
+    background-color: #c5e8e5;
+    color: #007478;
+    outline: none;
+    border: none;
+    padding: 3px 5px 3px 5px;
+}
+
+@media(max-width: 771px) {
+    body {
+        margin-top: 80px
+    }
+}
