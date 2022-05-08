@@ -139,7 +139,6 @@ X:\FCIH Mohammed\level 3 semester 2\Projects\ResearchGate\ResearchGate\bin\Syste
 X:\FCIH Mohammed\level 3 semester 2\Projects\ResearchGate\ResearchGate\bin\System.Web.Helpers.xml
 X:\FCIH Mohammed\level 3 semester 2\Projects\ResearchGate\ResearchGate\bin\System.Web.Mvc.xml
 X:\FCIH Mohammed\level 3 semester 2\Projects\ResearchGate\ResearchGate\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-X:\FCIH Mohammed\level 3 semester 2\Projects\ResearchGate\ResearchGate\obj\Debug\ResearchGate.csprojAssemblyReference.cache
 X:\FCIH Mohammed\level 3 semester 2\Projects\ResearchGate\ResearchGate\obj\Debug\ResearchGate.csproj.CoreCompileInputs.cache
 X:\FCIH Mohammed\level 3 semester 2\Projects\ResearchGate\ResearchGate\obj\Debug\ResearchGate.csproj.CopyComplete
 X:\FCIH Mohammed\level 3 semester 2\Projects\ResearchGate\ResearchGate\obj\Debug\ResearchGate.dll

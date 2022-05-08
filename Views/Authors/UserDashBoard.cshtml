@@ -1,23 +1,30 @@
-﻿
+﻿@model IEnumerable<ResearchGate.Models.Artical>
+
 @{
     ViewBag.Title = "UserDashBoard";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<fieldset>
-    <legend> User DashBoard </legend>
-
-    @if (Session["Fname"] != null)
-    {
-        <text>
-            Welcome @Session["Fname"].ToString()  @Session["ProfileImage"].ToString()
-        </text>
-    }
-</fieldset>
+<link href="~/Content/Home/home.css" rel="stylesheet" type="text/css" />
 
 
+@foreach (var item in Model)
+ {
+<div class="article-div" style="">
+    <a href=""><p style="font-size: 16px">@item.title</p></a>
+    <button class="article-btn">Article</button>
+    <br />
+    <span style="margin-top:5px">
+        @foreach (var author in @item.Authors)
+        {
 
+            <img src="@Url.Content(@author.ProfileImage.ToString())" style="border-radius: 25px;max-height:18px" />
+            <a href="/Authors/VisitProfile/@author.ID"><span>@author.Fname @author.Lname</span></a>
 
+        }
+    </span>
+    </div>
+}
 
 
 
