@@ -215,11 +215,8 @@
     <Content Include="Views\Authors\Edit.cshtml" />
     <Content Include="Views\Authors\VisitProfile.cshtml" />
     <Content Include="Views\AddArticals\ArticalDetails.cshtml" />
-    <Content Include="Views\AddArticals\Comment.cshtml" />
-    <Content Include="Views\AddArticals\Create.cshtml" />
-    <Content Include="Views\AddArticals\Delete.cshtml" />
-    <Content Include="Views\AddArticals\Edit.cshtml" />
     <Content Include="Views\AddArticals\ShowArticalDetails.cshtml" />
+    <Content Include="Views\AddArticals\Comment.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
