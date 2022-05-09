@@ -11,8 +11,7 @@
 @foreach (var item in Model)
  {
 <div class="article-div" style="">
-    @Html.ActionLink(@item.title, "ShowArticalDetails", "AddArticals", new { id = item.ID }, htmlAttributes: null)
-    <br />
+    <a href="/AddArticals/ShowArticalDetails/@item.ID"><p style="font-size: 16px">@item.title</p></a>
     <button class="article-btn">Article</button>
     <br />
     <span style="margin-top:5px">
@@ -24,9 +23,6 @@
 
         }
     </span>
-    
-    <button class="article-btn" style="float:right">@Html.ActionLink("Add Comment", "Comment", "AddArticals", new { id = item.ID }, htmlAttributes: null)</button>
-    
 </div>
 }
 

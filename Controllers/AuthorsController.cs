@@ -220,13 +220,14 @@ namespace ResearchGate.Controllers
         }
         public ActionResult Review()
         {
-            Author obj = new Author();
-            obj.Fname = Session["Fname"].ToString();
-            obj.Mname = Session["Mname"].ToString();
-            obj.Lname = Session["Lname"].ToString();
-            obj.university = Session["university"].ToString();
-            obj.ProfileImage = Session["ProfileImage"].ToString();
-            return View(obj);
+            //Author obj = new Author();
+            //obj.Fname = Session["Fname"].ToString();
+            //obj.Mname = Session["Mname"].ToString();
+            //obj.Lname = Session["Lname"].ToString();
+            //obj.university = Session["university"].ToString();
+            //obj.ProfileImage = Session["ProfileImage"].ToString();
+            Author author = db.Authors.Find(int.Parse(Session["ID"].ToString()));
+            return View(author);
         }
         protected override void Dispose(bool disposing)
         {
