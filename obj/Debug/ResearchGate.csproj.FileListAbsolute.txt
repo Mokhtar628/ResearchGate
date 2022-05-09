@@ -70,7 +70,6 @@ E:\faculty\level 3\second term\ia\ResearchGate\ResearchGate\obj\Debug\ResearchGa
 E:\faculty\level 3\second term\ia\ResearchGate\ResearchGate\obj\Debug\ResearchGate.csproj.CopyComplete
 E:\faculty\level 3\second term\ia\ResearchGate\ResearchGate\obj\Debug\ResearchGate.dll
 E:\faculty\level 3\second term\ia\ResearchGate\ResearchGate\obj\Debug\ResearchGate.pdb
-E:\faculty\level 3\second term\ia\ResearchGate\ResearchGate\obj\Debug\ResearchGate.csprojAssemblyReference.cache
 X:\FCIH Mohammed\level 3 semester 2\Projects\ResearchGate\ResearchGate\bin\ResearchGate.dll.config
 X:\FCIH Mohammed\level 3 semester 2\Projects\ResearchGate\ResearchGate\bin\ResearchGate.dll
 X:\FCIH Mohammed\level 3 semester 2\Projects\ResearchGate\ResearchGate\bin\ResearchGate.pdb
@@ -216,3 +215,4 @@ E:\3rd 2nd\ResearchGate\ResearchGate\obj\Debug\ResearchGate.csproj.CoreCompileIn
 E:\3rd 2nd\ResearchGate\ResearchGate\obj\Debug\ResearchGate.csproj.CopyComplete
 E:\3rd 2nd\ResearchGate\ResearchGate\obj\Debug\ResearchGate.dll
 E:\3rd 2nd\ResearchGate\ResearchGate\obj\Debug\ResearchGate.pdb
+E:\faculty\level 3\second term\ia\ResearchGate\ResearchGate\obj\Debug\ResearchGate.csprojAssemblyReference.cache

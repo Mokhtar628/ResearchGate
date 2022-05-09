@@ -2,69 +2,31 @@
 
 @{
     ViewBag.Title = "ShowArticalDetails";
-    @*Layout = "~/Views/Shared/_Layout.cshtml";*@
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="~/Content/Layout/Navbar.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/addResearch/iconContainer.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Search/Searchoutput.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
 <body>
-    <div class="ShowArticalUpper">
-        <div><h5 class="WordStyle">Artical</h5></div>
 
-        <div style="margin-top:25px;"><h3 class="font" style="margin-left:-54px;">@Html.DisplayFor(model => model.title)</h3></div>
-        @*@Html.DisplayFor(model=>model.Authors)*@
-        @{ 
-            foreach(var item in Model.Authors)
-            {
-                <p>@item.Fname @item.Lname</p>
-                <br />
-            }
-        }
+        <div>
+            <h3 style="text-align:center">@Model.title</h3>
 
-    </div>
-    <div>
-        <h4>Artical</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.title)
-            </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.title)
-            </dd>
+            <iframe src="../../@Model.Paper"
+                    frameBorder="0"
+                    scrolling="auto"
+                    height="500px"
+                    width="100%"></iframe>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Paper)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Paper)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.@abstract)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.@abstract)
-            </dd>
-
-        </dl>
-    </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
+        </div>
 
 </body>
 
