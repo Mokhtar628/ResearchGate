@@ -12,6 +12,7 @@
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link href="~/Content/Layout/Navbar.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Home/home.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
 <body>
@@ -30,7 +31,7 @@
             </div>
         </div>
         <hr />
-        <div class="card mb-3" style="max-width: 600px; border:2px solid #ccc; border-radius:5px;">
+        <div class="card mb-3" style="max-width: 600px; border:2px solid #ccc; border-radius:5px; background-color:white;">
             <div class="container">
                 <div style=" margin-top:5px;">
                     <p style="color:#888; display:inline;">Business card</p>
@@ -51,6 +52,23 @@
                 </div>
             </div>
         </div>
+        @foreach (var item in Model.Articals)
+        {
+            <div class="article-div" style="">
+                <a href="/AddArticals/ShowArticalDetails/@item.ID"><p style="font-size: 16px">@item.title</p></a>
+                <button class="article-btn">Article</button>
+                <br />
+                <span style="margin-top:5px">
+                    @foreach (var author in @item.Authors)
+                    {
+
+                        <img src="@Url.Content(@author.ProfileImage.ToString())" style="border-radius: 25px;max-height:18px" />
+                        <a href="/Authors/VisitProfile/@author.ID"><span>@author.Fname @author.Lname</span></a>
+
+                    }
+                </span>
+            </div>
+        }
     </div>
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
