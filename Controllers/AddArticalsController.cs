@@ -36,7 +36,7 @@ namespace ResearchGate.Controllers
                  string extension = Path.GetExtension(artical.pdfFile.FileName);
                  fileName = DateTime.Now.ToString("yymmssfff") + fileName + extension;
                  artical.Paper = "~/Papers/" + fileName;
-                 fileName = Path.Combine(Server.MapPath("Papers/"), fileName);
+                 fileName = Path.Combine(Server.MapPath("~/Papers/"), fileName);
                  artical.pdfFile.SaveAs(fileName);
                  db.Articals.Add(artical);
                  db.SaveChanges();
@@ -130,6 +130,7 @@ namespace ResearchGate.Controllers
             }
             return RedirectToAction("UserDashBoard","Authors", new { area = "" });
         }
+
 
         protected override void Dispose(bool disposing)
         {

@@ -17,17 +17,35 @@
 <body>
 
     <div>
-        <h3 style="text-align:center">@Model.title</h3>
+        <h3 style="text-align:left">@Model.title</h3>
+
+        @foreach (var author in Model.Authors)
+        {
+
+            <img src="@Url.Content(@author.ProfileImage.ToString())" style="border-radius: 25px;max-height:18px" />
+            <a href="/Authors/VisitProfile/@author.ID"><span>@author.Fname @author.Lname</span></a>
+
+        }
 
 
-        <iframe src="../../@Model.Paper"
+
+        <iframe src="@Url.Content(Model.Paper)"
                 frameBorder="0"
                 scrolling="auto"
                 height="500px"
-                width="100%"></iframe>
+                width="100%"
+                style="margin-top:10px"></iframe>
 
+        @foreach (var item in Model.Comments)
+        {
+            <div style="border: 0.5px solid black;margin-top:2px">
+                <img src="@Url.Content(item.Author.ProfileImage)" style="border-radius: 25px;max-height:18px" />
+                <a href="/Authors/VisitProfile/@item.Author.ID"><span>@item.Author.Fname @item.Author.Lname</span></a>
+                <div>@item.comment1</div>
+            </div>
+        }
     </div>
-    <a href="/AddArticals/Comment/@Model.ID" class="btn btn-primary" style="position:absolute; left:45%; background-color:#0080ff">Add Comment</a>
+    <a href="/AddArticals/Comment/@Model.ID" class="btn btn-primary" style="position:absolute; left:45%; background-color:#0080ff;margin-top:2px">Add Comment</a>
 </body>
 
 </html>
