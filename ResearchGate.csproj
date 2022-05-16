@@ -7,7 +7,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{08EB39C0-CFC3-4046-9048-1D9FF2BC55D5}</ProjectGuid>
+    <ProjectGuid>{A79913D2-A49B-4491-831C-A8B3D1BA5A78}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -102,12 +102,17 @@
     </Content>
     <Content Include="bin\ResearchGate.dll" />
     <Content Include="bin\ResearchGate.pdb" />
+    <Content Include="Content\addResearch\iconContainer.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Comment\Comment.css" />
     <Content Include="Content\EditStyle\Editcss.css" />
+    <Content Include="Content\Home\home.css" />
+    <Content Include="Content\Images\Comment.jpg" />
     <Content Include="Content\Images\profImg.png" />
+    <Content Include="Content\Images\publication-creation-grey.png" />
     <Content Include="Content\Images\RG.png" />
     <Content Include="Content\Images\WelcomeImage.jpg" />
     <Content Include="Content\Layout\Navbar.css" />
@@ -130,6 +135,13 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Papers\220329642529.pdf" />
+    <Content Include="Papers\223648787529.pdf" />
+    <Content Include="Papers\223825895529.pdf" />
+    <Content Include="Papers\224010568529.pdf" />
+    <Content Include="Papers\224700409529.pdf" />
+    <Content Include="Papers\225003140529.pdf" />
+    <Content Include="Papers\225251747529.pdf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -148,6 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AddArticalsController.cs" />
     <Compile Include="Controllers\AuthorsController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\WelcomeController.cs" />
@@ -201,10 +214,12 @@
     <Content Include="Views\Welcome\Index.cshtml" />
     <Content Include="Views\Authors\Login.cshtml" />
     <Content Include="Views\Authors\UserDashBoard.cshtml" />
-    <Content Include="Views\Authors\profile.cshtml" />
     <Content Include="Views\Authors\Review.cshtml" />
     <Content Include="Views\Authors\Edit.cshtml" />
-    <Content Include="Views\Authors\ReviewUserProfile.cshtml" />
+    <Content Include="Views\Authors\VisitProfile.cshtml" />
+    <Content Include="Views\AddArticals\ArticalDetails.cshtml" />
+    <Content Include="Views\AddArticals\ShowArticalDetails.cshtml" />
+    <Content Include="Views\AddArticals\Comment.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -212,7 +227,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

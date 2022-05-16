@@ -1,0 +1,113 @@
+﻿.fullLine {
+    border-bottom: 1px solid #ddd;
+}
+.container {
+    display: flex;
+    width: 695px;
+    height: 70px;
+    margin: auto;
+   
+}
+.backContainer{
+    height:410px;
+    background-color :whitesmoke;
+
+}
+.backContainer2 {
+    height: 900px;
+    background-color: whitesmoke;
+}
+.detailscontainer {
+    
+    margin-left: 405px;
+    width: 657px;
+    height: 700px;
+    background-color: white;
+}
+.a_container {
+    width: 590px;
+    border: 1px solid black;
+    padding: 8px;
+    margin-left: 35px;
+    background-color:whitesmoke;
+}
+.selectfileContainer {
+   
+    margin-left: 405px;
+    width: 600px;
+    height: 180px;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+}
+.skipContainer {
+    display:flex;
+    margin-left: 405px;
+    width: 600px;
+    height: 70px;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+}
+.button {
+    transition-duration: 0.4s;
+    background-color: white;
+    color: #0080ff;
+    border: 1px solid #0080ff;
+    border-radius: 2px;
+    margin-left: 35px;
+    margin-top:2px;
+    padding: 20px 161px;
+}
+
+  .button:hover {
+    background-color: #0080ff;
+    color: white;
+    }
+
+.skip {
+    margin-left:210px;
+    margin-top:21px;
+    text-align: left;
+    color: #0080ff;
+}
+.button2 {
+    transition-duration: 0.4s;
+    background-color: white;
+    color: #0080ff;
+    border: 1px solid #0080ff;
+    border-radius: 2px;
+    margin-left: 35px;
+    margin-top: 20px;
+    padding: 20px 160px;
+}
+
+    .button2:hover {
+        background-color: #0080ff;
+        color: white;
+    }
+.ShowArticalUpper {
+    display: flex;
+    width: 900px;
+    height: 200px;
+    margin: auto;
+    background-color:whitesmoke;
+}
+.WordStyle {
+    text-align: center;
+    background-color: #C5E8E5;
+    color: #007478;
+    padding: 3px;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-bottom: 40px;
+    border-radius: 2px;
+  
+}
+.font {
+    font-family:"Roboto",Arial,sans-serif;
+}

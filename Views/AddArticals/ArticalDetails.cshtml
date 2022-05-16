@@ -1,0 +1,88 @@
+﻿@model ResearchGate.Models.Artical
+
+@{
+    ViewBag.Title = "ArticalDetails";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="~/Content/Layout/Navbar.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/addResearch/iconContainer.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <nav class="navbar nav-style">
+        <div class="container-fluid">
+            <div class="navbar-left">
+                <img src="~/Content/Images/RG.png" alt="Research Gate" style="max-height:57px" />
+            </div>
+        </div>
+    </nav>
+    <div class="fullLine">
+        <div class="container">
+            <img src="~/Content/Images/publication-creation-grey.png" alt="Add Research" style="max-height:58px;margin-right:10px" />
+            <h3>Add research to your profile</h3>
+        </div>
+    </div>
+    @using (Html.BeginForm("ArticalDetails", "AddArticals", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="backContainer2">
+            <br />
+            <div class="detailscontainer">
+                <div class="form-group">
+                    <label style="margin-top:35px;margin-left:35px;">Publication type</label>
+                    <div class="a_container">
+                        Artical
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label style="margin-top:15px;margin-left:35px;">File (optional)</label>
+                    <input type="file" name="pdfFile" class="button" />
+                </div>
+
+                <div class="form-group">
+                    <label style="margin-top:15px;margin-left:35px;">Title</label>
+                    <br />
+                    @Html.TextBoxFor(model => model.title, new { @class = "a_container" })
+                </div>
+
+                <div class="form-group">
+                    <label style="margin-top:15px;margin-left:35px;">Abstraction of article</label>
+                    <br />
+                    @Html.TextAreaFor(model => model.@abstract, new { @class = "a_container" })
+
+                </div>
+                
+                <div class="form-group">
+                    <label style="margin-top:15px;margin-left:35px;">Collaborators by emails</label>
+                    <br />
+                    
+                   @Html.TextAreaFor(model => model.collaboratorsText, new { @class = "a_container" })
+                </div>
+                <br />
+                <input type="submit" value="Upload"class="button" style="margin-left:148px;" />
+            </div>
+                </div>
+                
+
+        
+    }
+
+    <footer>
+        <div style="position:absolute;bottom:-150px;left:5px;margin-top:100%">
+            <p>&copy; @DateTime.Now.Year - FCAI internet application project</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

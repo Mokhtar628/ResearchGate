@@ -190,7 +190,11 @@ namespace ResearchGate.Controllers
         {
             if (Session["ID"] != null)
             {
-                return View();
+                var articles = from t in db.Articals
+                               where true
+                               select t;
+                articles = articles.OrderByDescending(p => p.ID);
+                return View(articles);
             }
             else
             {
@@ -206,14 +210,24 @@ namespace ResearchGate.Controllers
             Session.Abandon();
             return RedirectToAction("Login");
         }
+        public ActionResult VisitProfile(int? id)
+        {
+            if (id == null)
+            {
+
+            }
+            return View(db.Authors.Find(id));
+        }
         public ActionResult Review()
         {
-            Author obj = new Author();
-            obj.Fname = Session["Fname"].ToString();
-            obj.Lname = Session["Lname"].ToString();
-            obj.university = Session["university"].ToString();
-            obj.ProfileImage = Session["ProfileImage"].ToString();
-            return View(obj);
+            //Author obj = new Author();
+            //obj.Fname = Session["Fname"].ToString();
+            //obj.Mname = Session["Mname"].ToString();
+            //obj.Lname = Session["Lname"].ToString();
+            //obj.university = Session["university"].ToString();
+            //obj.ProfileImage = Session["ProfileImage"].ToString();
+            Author author = db.Authors.Find(int.Parse(Session["ID"].ToString()));
+            return View(author);
         }
         [HttpGet]
         public ActionResult ReviewUserProfile(int id)

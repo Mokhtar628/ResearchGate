@@ -1,6 +1,5 @@
 ﻿@model IEnumerable<ResearchGate.Models.Author>
 
-
 @{
     ViewBag.Title = "OUT";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -26,29 +25,26 @@
         {
             foreach (var item in Model)
             {
-
-                <div class="card mb-3" style="max-width: 500px;">
-                    <div class="row g-0">
-                        <div class="col-md-8">
-                            <div class="info">
-                                @using (Html.BeginForm("ReviewUserProfile", "Authors", FormMethod.Get))
-                                {
-                                    @Html.AntiForgeryToken()
-                                    <h3 class="card-title"><a href="@Url.Action("ReviewUserProfile", "Authors", new { id = item.ID })">@item.Fname @item.Mname @item.Lname</a></h3>
-                                    <br />
-                                    <p class="card-text">@item.university</p>
-                                }
-                            </div>
+            <div class="card mb-3" style="max-width: 500px;">
+                <div class="row g-0">
+                    <div class="col-md-8">
+                        <div class="info">
+                            <h4 class="card-title">
+                                @item.Fname @item.Mname @item.Lname
+                            </h4>
+                            <p class="card-text">@item.university</p>
+                            @Html.ActionLink("VisitProfile", "VisitProfile", "Authors", new { id = item.ID } , new {@class="btn btn-default"})
                         </div>
-                        <div class="col-md-4">
-                            <div class="photo">
-                                <img src="@Url.Content(item.ProfileImage)" class="" alt="..." style="height:100px;width:100px;">
-                            </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="photo">
+                            <img src="@Url.Content(item.ProfileImage)" class="" alt="..." style="height:100px;width:100px;">
                         </div>
-
                     </div>
 
+                    
                 </div>
+            </div>
 
             }
         }
