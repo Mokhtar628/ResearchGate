@@ -13,7 +13,7 @@ namespace ResearchGate.Controllers
 {
     public class AuthorsController : Controller
     {
-        private ResearchGateDatabaseEntities db = new ResearchGateDatabaseEntities();
+        private ResearchGateDatabaseEntities1 db = new ResearchGateDatabaseEntities1();
 
 
         // GET: Authors/Create
@@ -86,7 +86,7 @@ namespace ResearchGate.Controllers
             string pass = Session["pass"].ToString();
             if (ModelState.IsValid)
             {
-                using (ResearchGateDatabaseEntities db = new ResearchGateDatabaseEntities())
+                using (ResearchGateDatabaseEntities1 db = new ResearchGateDatabaseEntities1())
                 {
                     var obj = db.Authors.Where(a => a.email.Equals(email) && a.pass.Equals(pass)).FirstOrDefault();
                     if (obj != null)
@@ -158,7 +158,7 @@ namespace ResearchGate.Controllers
         {
             if (ModelState.IsValid)
             {
-                using (ResearchGateDatabaseEntities db = new ResearchGateDatabaseEntities())
+                using (ResearchGateDatabaseEntities1 db = new ResearchGateDatabaseEntities1())
                 {
                     var obj = db.Authors.Where(a => a.email.Equals(author.email) && a.pass.Equals(author.pass)).FirstOrDefault();
                     if (obj != null)
