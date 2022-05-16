@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="ResearchGateDatabaseModelStoreContainer" CdmEntityContainer="ResearchGateDatabaseEntities">
+  <EntityContainerMapping StorageEntityContainer="ResearchGateDatabaseModelStoreContainer" CdmEntityContainer="ResearchGateDatabaseEntities1">
     <EntitySetMapping Name="Articals">
       <EntityTypeMapping TypeName="ResearchGateDatabaseModel.Artical">
         <MappingFragment StoreEntitySet="Artical">
@@ -8,6 +8,7 @@
           <ScalarProperty Name="title" ColumnName="title" />
           <ScalarProperty Name="Paper" ColumnName="Paper" />
           <ScalarProperty Name="abstract" ColumnName="abstract" />
+          <ScalarProperty Name="like" ColumnName="like" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

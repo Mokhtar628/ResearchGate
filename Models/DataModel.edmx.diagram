@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6be7434fe4b24e079d70b7375b0b3855" Name="Diagram1">
+      <Diagram DiagramId="2bd2b33294114d3ebc2da4624b483bb1" Name="Diagram1">
         <EntityTypeShape EntityType="ResearchGateDatabaseModel.Artical" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ResearchGateDatabaseModel.Author" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ResearchGateDatabaseModel.Comment" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />

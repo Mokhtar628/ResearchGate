@@ -26,6 +26,7 @@ namespace ResearchGate.Models
         public string title { get; set; }
         public string Paper { get; set; }
         public string @abstract { get; set; }
+        public Nullable<int> like { get; set; }
         public HttpPostedFileBase pdfFile { get; set; }
         public string collaboratorsText { get; set; }
 

@@ -13,7 +13,7 @@ namespace ResearchGate.Controllers
 {
     public class AddArticalsController : Controller
     {
-        private ResearchGateDatabaseEntities db = new ResearchGateDatabaseEntities();
+        private ResearchGateDatabaseEntities1 db = new ResearchGateDatabaseEntities1();
 
         public ActionResult ArticalDetails()
         {
@@ -50,7 +50,8 @@ namespace ResearchGate.Controllers
             addCollaborators(collaboratorsId, lastArticalAdded.ID);
 
 
-            return View(artical);
+            //return View(artical);
+            return RedirectToAction("UserDashBoard", "Authors", new { area = "" });
         }
 
 
@@ -131,6 +132,24 @@ namespace ResearchGate.Controllers
             return RedirectToAction("UserDashBoard","Authors", new { area = "" });
         }
 
+
+        public ActionResult Like(int ID)
+        {
+            var obj = db.Articals.Find(ID);
+            obj.like = obj.like + 1;
+            db.Entry(obj).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("ArticalDetails");
+        }
+
+        public ActionResult DisLike(int ID)
+        {
+            var obj = db.Articals.Find(ID);
+            obj.like = obj.like - 1;
+            db.Entry(obj).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("ArticalDetails");
+        }
 
         protected override void Dispose(bool disposing)
         {
