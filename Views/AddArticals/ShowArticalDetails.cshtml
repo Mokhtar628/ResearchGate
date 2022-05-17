@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link href="~/Content/Search/Searchoutput.css" rel="stylesheet" />
+    <link href="~/Content/addResearch/like.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
@@ -27,7 +28,12 @@
 
         }
 
-
+        <div style="margin-right:10px; float:right">
+            <a href="/AddArticals/Like/@Model.ID" class="btn-secondary like-review"><i class="fa fa-heart" aria-hidden="true"></i> Like</a>
+        </div>
+        <div style="margin-right:10px; float:right">
+            <a href="/AddArticals/DisLike/@Model.ID" class="btn-secondary like-review"><i class="fa fa-thumbs-down" aria-hidden="true"></i> DisLike</a>
+        </div>
 
         <iframe src="@Url.Content(Model.Paper)"
                 frameBorder="0"

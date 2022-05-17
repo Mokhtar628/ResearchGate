@@ -13,20 +13,21 @@
           <Property Name="title" Type="varchar" MaxLength="50" />
           <Property Name="Paper" Type="varchar" MaxLength="50" />
           <Property Name="abstract" Type="varchar" MaxLength="500" />
+          <Property Name="like" Type="int" />
         </EntityType>
         <EntityType Name="Author">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Fname" Type="varchar" MaxLength="50" />
-          <Property Name="Mname" Type="varchar" MaxLength="50" />
-          <Property Name="Lname" Type="varchar" MaxLength="50" />
-          <Property Name="pass" Type="varchar" MaxLength="50" />
-          <Property Name="ProfileImage" Type="varchar" MaxLength="50" />
-          <Property Name="email" Type="varchar" MaxLength="50" />
-          <Property Name="Mobile" Type="varchar" MaxLength="15" />
-          <Property Name="university" Type="varchar" MaxLength="50" />
+          <Property Name="Fname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Lname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="pass" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProfileImage" Type="varchar" MaxLength="500" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mobile" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="university" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Collaborators">
           <Key>
@@ -129,6 +130,7 @@
           <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Paper" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="abstract" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="like" Type="Int32" />
           <NavigationProperty Name="Comments" Relationship="Self.FK__Comment__Artical__2B3F6F97" FromRole="Artical" ToRole="Comment" />
           <NavigationProperty Name="Authors" Relationship="Self.Collaborators" FromRole="Artical" ToRole="Author" />
         </EntityType>
@@ -137,14 +139,14 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Fname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Mname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Lname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ProfileImage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Mobile" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="university" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Mname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Lname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProfileImage" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Mobile" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="university" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Comments" Relationship="Self.FK__Comment__AuthorI__2C3393D0" FromRole="Author" ToRole="Comment" />
           <NavigationProperty Name="Articals" Relationship="Self.Collaborators" FromRole="Author" ToRole="Artical" />
         </EntityType>
@@ -188,7 +190,7 @@
           <End Role="Artical" Type="Self.Artical" Multiplicity="*" />
           <End Role="Author" Type="Self.Author" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="ResearchGateDatabaseEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ResearchGateDatabaseEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Articals" EntityType="Self.Artical" />
           <EntitySet Name="Authors" EntityType="Self.Author" />
           <EntitySet Name="Comments" EntityType="Self.Comment" />
@@ -210,7 +212,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ResearchGateDatabaseModelStoreContainer" CdmEntityContainer="ResearchGateDatabaseEntities">
+        <EntityContainerMapping StorageEntityContainer="ResearchGateDatabaseModelStoreContainer" CdmEntityContainer="ResearchGateDatabaseEntities1">
           <EntitySetMapping Name="Articals">
             <EntityTypeMapping TypeName="ResearchGateDatabaseModel.Artical">
               <MappingFragment StoreEntitySet="Artical">
@@ -218,6 +220,7 @@
                 <ScalarProperty Name="title" ColumnName="title" />
                 <ScalarProperty Name="Paper" ColumnName="Paper" />
                 <ScalarProperty Name="abstract" ColumnName="abstract" />
+                <ScalarProperty Name="like" ColumnName="like" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

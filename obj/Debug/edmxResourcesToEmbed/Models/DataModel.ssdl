@@ -8,20 +8,21 @@
     <Property Name="title" Type="varchar" MaxLength="50" />
     <Property Name="Paper" Type="varchar" MaxLength="50" />
     <Property Name="abstract" Type="varchar" MaxLength="500" />
+    <Property Name="like" Type="int" />
   </EntityType>
   <EntityType Name="Author">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Fname" Type="varchar" MaxLength="50" />
-    <Property Name="Mname" Type="varchar" MaxLength="50" />
-    <Property Name="Lname" Type="varchar" MaxLength="50" />
-    <Property Name="pass" Type="varchar" MaxLength="50" />
-    <Property Name="ProfileImage" Type="varchar" MaxLength="50" />
-    <Property Name="email" Type="varchar" MaxLength="50" />
-    <Property Name="Mobile" Type="varchar" MaxLength="15" />
-    <Property Name="university" Type="varchar" MaxLength="50" />
+    <Property Name="Fname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Mname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Lname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="pass" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProfileImage" Type="varchar" MaxLength="500" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Mobile" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="university" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Collaborators">
     <Key>

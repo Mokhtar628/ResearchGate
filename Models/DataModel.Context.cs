@@ -13,10 +13,10 @@ namespace ResearchGate.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ResearchGateDatabaseEntities : DbContext
+    public partial class ResearchGateDatabaseEntities1 : DbContext
     {
-        public ResearchGateDatabaseEntities()
-            : base("name=ResearchGateDatabaseEntities")
+        public ResearchGateDatabaseEntities1()
+            : base("name=ResearchGateDatabaseEntities1")
         {
         }
     

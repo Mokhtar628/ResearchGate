@@ -8,7 +8,7 @@ namespace ResearchGate.Controllers
 {
     public class SearchController : Controller
     {
-        ResearchGateDatabaseEntities db = new ResearchGateDatabaseEntities();
+        ResearchGateDatabaseEntities1 db = new ResearchGateDatabaseEntities1();
         public ActionResult Index()
         {
             return View();
